@@ -1,0 +1,11 @@
+---
+- host: tag_Env_Demo
+  remote_user: ec2-user
+  # remote_user: user
+  sudo: yes
+  tasks:      
+  - name: Restore database
+    mysql_db:
+      name: wordpress
+      state: import
+      target: /srv/backup/wordpress.sql
